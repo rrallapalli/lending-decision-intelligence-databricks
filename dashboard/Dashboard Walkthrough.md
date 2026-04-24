@@ -174,9 +174,9 @@ to
 
 In a production Databricks environment, this can be extended with:
 
-- Unity Catalog (governance)  
-- Row-level security  
-- Mosaic AI / Genie for conversational analytics  
-- Real-time data pipelines  
+- Unity Catalog (governance)
+- Role Based Access Control & Row-level security
+- Batch/ Real Time Data Pipelines for Data Ingestion from OLTP/Lakebase  
+- Mosaic AI / Genie for conversational analytics
 
 ---
