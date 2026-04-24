@@ -111,5 +111,7 @@ The dashboard is built using **Gold tables as datasets (no SQL layer)**.
 
 ## 📬 Contact
 
+If you're interested in discussing Data, AI, or Databricks solutions, feel free to connect.
+
 Rakesh Rallapalli  
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin)]([https://www.linkedin.com/in/rakesh-rallapalli/])
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin)](https://www.linkedin.com/in/rakesh-rallapalli/)
