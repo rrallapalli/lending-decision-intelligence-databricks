@@ -44,7 +44,7 @@ This project introduces a **strategy simulation layer** to evaluate trade-offs b
 
 ### Underwriting Strategy Definitions
 
-![Strategy Definitions](images/strategy_definitions.png)
+![Strategy Definitions](images/Underwriting%Strategies.png)
 
 ---
 
