@@ -50,11 +50,7 @@ This project introduces a **strategy simulation layer** to evaluate trade-offs b
 
 ## 🧱 Architecture (Lakehouse Design)
 
-Bronze → Silver → Gold → Dashboard  
-                     → Strategy Simulation  
-                     → AI Insights  
-
----
+![Medallion Architecture](images/Lending%20Decision%20Intelligence%20-%20Databricks%20Medallion%20Architecture.png)
 
 ## 📊 Dashboard (Databricks AI/BI)
 
