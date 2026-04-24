@@ -94,7 +94,7 @@ The dashboard is built using **Gold tables as datasets (no SQL layer)**.
 
 ## ▶️ How to Run
 
-Refer [![How To Run]](docs/how_to_run.md)
+Refer [How To Run](docs/how_to_run.md)
 
 ---
 
