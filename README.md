@@ -111,4 +111,4 @@ The dashboard is built using **Gold tables as datasets (no SQL layer)**.
 
 ## 📬 Contact
 
-Add your LinkedIn here
+Add your LinkedIn here ![Rakesh Rallapalli](https://www.linkedin.com/in/rakesh-rallapalli/)
