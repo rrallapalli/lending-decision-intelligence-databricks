@@ -1,0 +1,3240 @@
+{
+  "datasets": [
+    {
+      "name": "3f3fd7c6",
+      "displayName": "gold_portfolio_kpis",
+      "config": {
+        "version": "1.1",
+        "source": "workspace.default.gold_portfolio_kpis",
+        "dimensions": [
+          {
+            "name": "reporting_month",
+            "expr": "source.reporting_month",
+            "comment": "Represents the month for which the KPIs are reported, helping track performance trends over time.",
+            "displayName": "Reporting Month"
+          },
+          {
+            "name": "customer_segment",
+            "expr": "source.customer_segment",
+            "comment": "Categorizes customers based on shared characteristics, allowing for targeted analysis of different groups.",
+            "displayName": "Customer Segment"
+          },
+          {
+            "name": "customer_age_segment",
+            "expr": "source.customer_age_segment",
+            "comment": "Breaks down customers into age groups, aiding in the understanding of demographic influences on portfolio performance.",
+            "displayName": "Customer Age Segment"
+          },
+          {
+            "name": "employment_type",
+            "expr": "source.employment_type",
+            "comment": "Identifies the type of employment status of customers, which can impact their borrowing behavior and risk profile.",
+            "displayName": "Employment Type"
+          },
+          {
+            "name": "geography",
+            "expr": "source.geography",
+            "comment": "Indicates the geographical location of customers, providing insight into regional performance variations and market dynamics.",
+            "displayName": "Geography"
+          },
+          {
+            "name": "acquisition_channel",
+            "expr": "source.acquisition_channel",
+            "comment": "Describes the method through which customers were acquired, essential for evaluating the effectiveness of marketing strategies.",
+            "displayName": "Acquisition Channel"
+          },
+          {
+            "name": "score_band",
+            "expr": "source.score_band",
+            "comment": "Represents the credit score range of customers, assisting in the assessment of creditworthiness and risk levels.",
+            "displayName": "Score Band"
+          },
+          {
+            "name": "risk_band",
+            "expr": "source.risk_band",
+            "comment": "Categorizes customers into risk levels based on various criteria, crucial for portfolio risk management.",
+            "displayName": "Risk Band"
+          },
+          {
+            "name": "product_type",
+            "expr": "source.product_type",
+            "comment": "Specifies the type of financial product associated with the loans in the portfolio, aiding in product performance analysis.",
+            "displayName": "Product Type"
+          },
+          {
+            "name": "ticket_size_segment",
+            "expr": "source.ticket_size_segment",
+            "comment": "Segments loans by size or amount, providing insights into lending patterns and customer preferences.",
+            "displayName": "Ticket Size Segment"
+          },
+          {
+            "name": "tenure_band",
+            "expr": "source.tenure_band",
+            "comment": "Groups loans by duration or term, which can influence repayment behavior and risk assessment.",
+            "displayName": "Tenure Band"
+          },
+          {
+            "name": "dpd_bucket",
+            "expr": "source.dpd_bucket",
+            "comment": "Indicates the Days Past Due (DPD) category of loans, useful for tracking delinquency trends and assessing portfolio health.",
+            "displayName": "Dpd Bucket"
+          },
+          {
+            "name": "total_loans",
+            "expr": "source.total_loans",
+            "comment": "Summarizes the total number of loans issued within the reporting period, key for understanding portfolio scale.",
+            "displayName": "Total Loans"
+          },
+          {
+            "name": "total_disbursed",
+            "expr": "source.total_disbursed",
+            "comment": "Represents the cumulative amount of money disbursed in loans over the reporting period, important for financial metrics.",
+            "displayName": "Total Disbursed"
+          },
+          {
+            "name": "total_defaults",
+            "expr": "source.total_defaults",
+            "comment": "Counts the total number of loans that have defaulted, an essential metric for gauging portfolio performance and risk.",
+            "displayName": "Total Defaults"
+          },
+          {
+            "name": "avg_default_rate",
+            "expr": "source.avg_default_rate",
+            "comment": "Calculates the average rate of defaults across the portfolio, essential for assessing overall credit risk.",
+            "displayName": "Avg Default Rate"
+          },
+          {
+            "name": "avg_bureau_score",
+            "expr": "source.avg_bureau_score",
+            "comment": "Calculates the average credit score from credit bureaus for customers, helping in risk assessment and profiling.",
+            "displayName": "Avg Bureau Score"
+          },
+          {
+            "name": "total_outstanding_balance",
+            "expr": "source.total_outstanding_balance",
+            "comment": "Represents the total outstanding balance for each record, indicating the amount that remains unpaid. Use this dimension to analyze or filter data based on current balances owed.",
+            "displayName": "Total Outstanding Balance"
+          },
+          {
+            "name": "total_default_amount",
+            "expr": "source.total_default_amount",
+            "comment": "Represents the total default amount associated with each record in the source table. Use this dimension to analyze or filter data based on the default amount values.",
+            "displayName": "Total Default Amount"
+          },
+          {
+            "name": "total_default_outstanding_balance",
+            "expr": "source.total_default_outstanding_balance",
+            "comment": "Represents the total outstanding balance for accounts or entities that are in default. Use this dimension to analyze or filter records based on the amount owed by defaulted parties.",
+            "displayName": "Total Default Outstanding Balance"
+          }
+        ],
+        "measures": [
+          {
+            "name": "count",
+            "expr": "COUNT(*)",
+            "comment": "Represents the total number of rows in the dataset. Use this measure to count all",
+            "displayName": "Count"
+          },
+          {
+            "name": "LAR %",
+            "expr": "SUM(source.total_defaults)/SUM(source.total_loans)",
+            "comment": "This measure represents the Loan Default Rate (LAR), calculated as the ratio of total defaults to total loans. It helps users assess the loan book performance.",
+            "displayName": "LAR %"
+          },
+          {
+            "name": "PAR %",
+            "expr": "SUM(source.total_default_outstanding_balance)/SUM(source.total_outstanding_balance)",
+            "comment": "This measure represents the Outstanding Balance of Loans in Default, calculated as the ratio of total default outstanding balances to total outstanding balances. It is useful for assessing the credit risk and performance of portfolio.",
+            "displayName": "PAR %"
+          },
+          {
+            "name": "Avg. Ticket Size",
+            "expr": "SUM(source.total_disbursed)/SUM(source.total_loans)",
+            "comment": "Represents the average size of loans disbursed, calculated by dividing the total disbursed amount by the total number of loans. Use this measure to assess lending performance and understand the typical loan size over a specified period.",
+            "displayName": "Avg. Ticket Size"
+          }
+        ]
+      }
+    },
+    {
+      "name": "e3016df1",
+      "displayName": "gold_strategy_simulation",
+      "config": {
+        "version": "1.1",
+        "source": "workspace.default.gold_strategy_simulation",
+        "dimensions": [
+          {
+            "name": "reporting_month",
+            "expr": "source.reporting_month",
+            "comment": "Represents the month for which the reporting is being done, indicating the time period of the lending data captured.",
+            "displayName": "Reporting Month"
+          },
+          {
+            "name": "strategy_name",
+            "expr": "source.strategy_name",
+            "comment": "Indicates the name of the lending strategy being evaluated in the simulation.",
+            "displayName": "Strategy Name"
+          },
+          {
+            "name": "total_applications",
+            "expr": "source.total_applications",
+            "comment": "The total number of loan applications received during the reporting month.",
+            "displayName": "Total Applications"
+          },
+          {
+            "name": "approved_count",
+            "expr": "source.approved_count",
+            "comment": "Represents the count of loan applications that were approved during the reporting month.",
+            "displayName": "Approved Count"
+          },
+          {
+            "name": "approval_rate",
+            "expr": "source.approval_rate",
+            "comment": "Calculated as the percentage of approved applications out of the total applications received, reflecting the effectiveness of the lending strategy.",
+            "displayName": "Approval Rate"
+          },
+          {
+            "name": "approved_disbursed",
+            "expr": "source.approved_disbursed",
+            "comment": "Denotes the total amount disbursed for the approved loan applications during the reporting month.",
+            "displayName": "Approved Disbursed"
+          },
+          {
+            "name": "approved_outstanding_balance",
+            "expr": "source.approved_outstanding_balance",
+            "comment": "Represents the total outstanding balance of loans that have been approved but not fully repaid as of the reporting month.",
+            "displayName": "Approved Outstanding Balance"
+          },
+          {
+            "name": "approved_defaults",
+            "expr": "source.approved_defaults",
+            "comment": "The number of approved loans that have defaulted within the specified reporting period.",
+            "displayName": "Approved Defaults"
+          },
+          {
+            "name": "approved_default_amount",
+            "expr": "source.approved_default_amount",
+            "comment": "Total monetary value of the loans that have been approved and subsequently defaulted.",
+            "displayName": "Approved Default Amount"
+          },
+          {
+            "name": "approved_default_outstanding_balance",
+            "expr": "source.approved_default_outstanding_balance",
+            "comment": "Total outstanding balance associated with loans that have defaulted after approval.",
+            "displayName": "Approved Default Outstanding Balance"
+          },
+          {
+            "name": "expected_default_rate",
+            "expr": "source.expected_default_rate",
+            "comment": "An estimate of the rate at which loans are expected to default based on historical data and current lending conditions.",
+            "displayName": "Expected Default Rate"
+          },
+          {
+            "name": "avg_loan_amount",
+            "expr": "source.avg_loan_amount",
+            "comment": "The average amount of loans approved during the reporting month, providing insight into lending patterns.",
+            "displayName": "Avg Loan Amount"
+          },
+          {
+            "name": "avg_bureau_score",
+            "expr": "source.avg_bureau_score",
+            "comment": "The average credit bureau score of applicants whose loans were approved in the reporting month, indicating the creditworthiness of the applicant pool.",
+            "displayName": "Avg Bureau Score"
+          },
+          {
+            "name": "expected_loss_proxy",
+            "expr": "source.expected_loss_proxy",
+            "comment": "Used as an indicator of potential financial loss, calculated based on the expected default rate and the total approved amount.",
+            "displayName": "Expected Loss Proxy"
+          }
+        ],
+        "measures": [
+          {
+            "name": "count",
+            "expr": "COUNT(*)",
+            "comment": "Represents the total number of rows in the dataset. Use this measure to count all",
+            "displayName": "Count"
+          }
+        ]
+      }
+    },
+    {
+      "name": "295c7f47",
+      "displayName": "gold_ai_insights",
+      "config": {
+        "version": "1.1",
+        "source": "workspace.default.gold_ai_insights",
+        "dimensions": [
+          {
+            "name": "insight_category",
+            "expr": "source.insight_category",
+            "displayName": "Insight Category"
+          },
+          {
+            "name": "insight_text",
+            "expr": "source.insight_text",
+            "displayName": "Insight Text"
+          }
+        ],
+        "measures": [
+          {
+            "name": "count",
+            "expr": "COUNT(*)",
+            "comment": "Represents the total number of rows in the dataset. Use this measure to count all",
+            "displayName": "Count"
+          }
+        ]
+      }
+    },
+    {
+      "name": "2c243452",
+      "displayName": "ref_underwriting_strategies",
+      "config": {
+        "version": "1.1",
+        "source": "workspace.default.ref_underwriting_strategies",
+        "dimensions": [
+          {
+            "name": "Strategy",
+            "expr": "source.Strategy",
+            "displayName": "Strategy"
+          },
+          {
+            "name": "Description",
+            "expr": "source.Description",
+            "displayName": "Description"
+          },
+          {
+            "name": "Key Rules",
+            "expr": "source.`Key Rules`",
+            "displayName": "Key Rules"
+          }
+        ],
+        "measures": [
+          {
+            "name": "count",
+            "expr": "COUNT(*)",
+            "comment": "Represents the total number of rows in the dataset. Use this measure to count all",
+            "displayName": "Count"
+          }
+        ]
+      }
+    }
+  ],
+  "pages": [
+    {
+      "name": "0669ed7d",
+      "displayName": "Executive Summary",
+      "layout": [
+        {
+          "widget": {
+            "name": "total-loans",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "sum(total_loans)",
+                      "expression": "SUM(`total_loans`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Total Loans",
+                "showDescription": false
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(total_loans)"
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 4,
+            "width": 3,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "a2af1627",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "sum(total_disbursed)",
+                      "expression": "SUM(`total_disbursed`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Total Amount"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(total_disbursed)"
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 4,
+            "width": 3,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "78781b3f",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "sum(total_outstanding_balance)",
+                      "expression": "SUM(`total_outstanding_balance`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Portfolio Outstanding"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(total_outstanding_balance)"
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 9,
+            "y": 4,
+            "width": 3,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "ea6edc0d",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "measure(LAR %)",
+                      "expression": "MEASURE(`LAR %`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Default Rate (90+ Loans %)"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "measure(LAR %)",
+                  "format": {
+                    "type": "number-percent",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 6,
+            "width": 3,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "687aa890",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "measure(Avg. Ticket Size)",
+                      "expression": "MEASURE(`Avg. Ticket Size`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Avg. Ticket Size"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "measure(Avg. Ticket Size)"
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 4,
+            "width": 3,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "ebd45e37",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "measure(PAR %)",
+                      "expression": "MEASURE(`PAR %`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Default Rate (90+ Portfolio Outstanding %)"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "measure(PAR %)",
+                  "format": {
+                    "type": "number-percent",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 9,
+            "y": 6,
+            "width": 3,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "reporting-month",
+            "queries": [
+              {
+                "name": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_monthly(reporting_month)",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "monthly(reporting_month)",
+                      "expression": "DATE_TRUNC(\"MONTH\", `reporting_month`)"
+                    },
+                    {
+                      "name": "monthly(reporting_month)_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Reporting Month"
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "monthly(reporting_month)",
+                    "displayName": "MONTHLY(reporting_month)",
+                    "queryName": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_monthly(reporting_month)"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 4,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "customer-segment",
+            "queries": [
+              {
+                "name": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_customer_segment",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "customer_segment",
+                      "expression": "`customer_segment`"
+                    },
+                    {
+                      "name": "customer_segment_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Customer Segment"
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "customer_segment",
+                    "queryName": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_customer_segment"
+                  }
+                ]
+              }
+            },
+            "specExtensions": {
+              "widgetBackgroundColor": {
+                "light": "#FFFFFF"
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 0,
+            "width": 4,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "employment-type",
+            "queries": [
+              {
+                "name": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_employment_type",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "employment_type",
+                      "expression": "`employment_type`"
+                    },
+                    {
+                      "name": "employment_type_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Employment Type"
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "employment_type",
+                    "queryName": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_employment_type"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 1,
+            "width": 4,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "acquisition-channel",
+            "queries": [
+              {
+                "name": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_acquisition_channel",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "acquisition_channel",
+                      "expression": "`acquisition_channel`"
+                    },
+                    {
+                      "name": "acquisition_channel_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Acquisition Channel"
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "acquisition_channel",
+                    "queryName": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_acquisition_channel"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 2,
+            "width": 4,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "score-band",
+            "queries": [
+              {
+                "name": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_score_band",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "score_band",
+                      "expression": "`score_band`"
+                    },
+                    {
+                      "name": "score_band_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Score band"
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "score_band",
+                    "queryName": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_score_band"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 2,
+            "width": 4,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "risk-band",
+            "queries": [
+              {
+                "name": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_risk_band",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "risk_band",
+                      "expression": "`risk_band`"
+                    },
+                    {
+                      "name": "risk_band_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Risk Band"
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "risk_band",
+                    "queryName": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_risk_band"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 3,
+            "width": 4,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "product",
+            "queries": [
+              {
+                "name": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_product_type",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "product_type",
+                      "expression": "`product_type`"
+                    },
+                    {
+                      "name": "product_type_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Product"
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "product_type",
+                    "queryName": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_product_type"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 8,
+            "y": 0,
+            "width": 4,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "geography",
+            "queries": [
+              {
+                "name": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_geography",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "geography",
+                      "expression": "`geography`"
+                    },
+                    {
+                      "name": "geography_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Geography"
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "geography",
+                    "queryName": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_geography"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 1,
+            "width": 4,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "ticket-size-segment",
+            "queries": [
+              {
+                "name": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_ticket_size_segment",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "ticket_size_segment",
+                      "expression": "`ticket_size_segment`"
+                    },
+                    {
+                      "name": "ticket_size_segment_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Ticket Size"
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "ticket_size_segment",
+                    "queryName": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_ticket_size_segment"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 8,
+            "y": 1,
+            "width": 4,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "tenure",
+            "queries": [
+              {
+                "name": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_tenure_band",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "tenure_band",
+                      "expression": "`tenure_band`"
+                    },
+                    {
+                      "name": "tenure_band_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Tenure"
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "tenure_band",
+                    "queryName": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_tenure_band"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 8,
+            "y": 2,
+            "width": 4,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "b1ae1fcc",
+            "queries": [
+              {
+                "name": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_dpd_bucket",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "dpd_bucket",
+                      "expression": "`dpd_bucket`"
+                    },
+                    {
+                      "name": "dpd_bucket_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "title": "DPD Bucket",
+                "showTitle": true
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "dpd_bucket",
+                    "queryName": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_dpd_bucket"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 8,
+            "y": 3,
+            "width": 4,
+            "height": 1
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    },
+    {
+      "name": "0f107f8a",
+      "displayName": "Portfolio Trends",
+      "layout": [
+        {
+          "widget": {
+            "name": "monthly_disbursed",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "reporting_month",
+                      "expression": "`reporting_month`"
+                    },
+                    {
+                      "name": "sum(total_disbursed)",
+                      "expression": "SUM(`total_disbursed`)"
+                    },
+                    {
+                      "name": "sum(total_outstanding_balance)",
+                      "expression": "SUM(`total_outstanding_balance`)"
+                    },
+                    {
+                      "name": "sum(total_loans)",
+                      "expression": "SUM(`total_loans`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "Monthly Disbursed Trend",
+                "showTitle": true
+              },
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "reporting_month",
+                  "axis": {
+                    "hideTitle": true
+                  },
+                  "displayName": "reporting_month",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "primary": {
+                    "fields": [
+                      {
+                        "fieldName": "sum(total_disbursed)",
+                        "displayName": "sum(total_disbursed)"
+                      },
+                      {
+                        "fieldName": "sum(total_outstanding_balance)"
+                      }
+                    ],
+                    "scale": {
+                      "type": "quantitative"
+                    },
+                    "format": {
+                      "type": "number-plain",
+                      "decimalPlaces": {
+                        "type": "exact",
+                        "places": 0
+                      },
+                      "abbreviation": "compact"
+                    }
+                  },
+                  "secondary": {
+                    "fields": [
+                      {
+                        "fieldName": "sum(total_loans)",
+                        "displayName": "Total Loans Disbursed"
+                      }
+                    ],
+                    "scale": {
+                      "type": "quantitative"
+                    }
+                  }
+                },
+                "color": {
+                  "legend": {
+                    "position": "bottom"
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "9e604d82",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "reporting_month",
+                      "expression": "`reporting_month`"
+                    },
+                    {
+                      "name": "measure(PAR %)",
+                      "expression": "MEASURE(`PAR %`)"
+                    },
+                    {
+                      "name": "measure(LAR %)",
+                      "expression": "MEASURE(`LAR %`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "Monthly Default Rate Trend",
+                "showTitle": true
+              },
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "reporting_month",
+                  "axis": {
+                    "hideTitle": true
+                  },
+                  "displayName": "reporting_month",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "primary": {
+                    "fields": [
+                      {
+                        "fieldName": "measure(PAR %)"
+                      }
+                    ],
+                    "scale": {
+                      "type": "quantitative"
+                    },
+                    "format": {
+                      "type": "number-percent",
+                      "decimalPlaces": {
+                        "type": "max",
+                        "places": 2
+                      }
+                    }
+                  },
+                  "secondary": {
+                    "fields": [
+                      {
+                        "fieldName": "measure(LAR %)"
+                      }
+                    ],
+                    "scale": {
+                      "type": "quantitative"
+                    }
+                  }
+                },
+                "color": {
+                  "legend": {
+                    "position": "bottom"
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 0,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "d1651669",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "score_band",
+                      "expression": "`score_band`"
+                    },
+                    {
+                      "name": "reporting_month",
+                      "expression": "`reporting_month`"
+                    },
+                    {
+                      "name": "measure(PAR %)",
+                      "expression": "MEASURE(`PAR %`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "Defaults by Score Bands (Outstanding Portfolio)",
+                "showTitle": true
+              },
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "reporting_month",
+                  "axis": {
+                    "hideTitle": true
+                  },
+                  "displayName": "Reporting Month",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "fieldName": "measure(PAR %)",
+                  "format": {
+                    "type": "number-percent",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "score_band",
+                  "legend": {
+                    "position": "bottom"
+                  },
+                  "displayName": "Score Band",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 6,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "6aa70dd6",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "score_band",
+                      "expression": "`score_band`"
+                    },
+                    {
+                      "name": "reporting_month",
+                      "expression": "`reporting_month`"
+                    },
+                    {
+                      "name": "measure(LAR %)",
+                      "expression": "MEASURE(`LAR %`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "Defaults by Score Bands (Outstanding Loans)",
+                "showTitle": true
+              },
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "reporting_month",
+                  "axis": {
+                    "hideTitle": true
+                  },
+                  "displayName": "Reporting Month",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "fieldName": "measure(LAR %)",
+                  "format": {
+                    "type": "number-percent",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "score_band",
+                  "legend": {
+                    "position": "bottom"
+                  },
+                  "displayName": "Score Band",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 6,
+            "width": 6,
+            "height": 6
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    },
+    {
+      "name": "c7a6e20d",
+      "displayName": "Risk Segmentation",
+      "layout": [
+        {
+          "widget": {
+            "name": "b18767fc",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "score_band",
+                      "expression": "`score_band`"
+                    },
+                    {
+                      "name": "measure(LAR %)",
+                      "expression": "MEASURE(`LAR %`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "Default Rate by Score Band",
+                "showTitle": true
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "score_band",
+                  "axis": {
+                    "hideTitle": true
+                  },
+                  "displayName": "Score Band",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "measure(LAR %)",
+                  "format": {
+                    "type": "number-percent",
+                    "decimalPlaces": {
+                      "type": "exact",
+                      "places": 2
+                    }
+                  },
+                  "displayName": "Default Rate (LAR %)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "score_band",
+                  "displayName": "Score Band",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "label": {
+                  "show": true
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 6,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "0cd4571d",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "risk_band",
+                      "expression": "`risk_band`"
+                    },
+                    {
+                      "name": "measure(LAR %)",
+                      "expression": "MEASURE(`LAR %`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "Default Rate by Risk Band",
+                "showTitle": true
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "risk_band",
+                  "axis": {
+                    "hideTitle": true
+                  },
+                  "displayName": "Risk Band",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "measure(LAR %)",
+                  "format": {
+                    "type": "number-percent",
+                    "decimalPlaces": {
+                      "type": "exact",
+                      "places": 2
+                    }
+                  },
+                  "displayName": "Default Rate (LAR %)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "risk_band",
+                  "displayName": "Risk Band",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "label": {
+                  "show": true
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 6,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "d604b540",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "customer_segment",
+                      "expression": "`customer_segment`"
+                    },
+                    {
+                      "name": "measure(LAR %)",
+                      "expression": "MEASURE(`LAR %`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "Default Rate by Customer Segment",
+                "showTitle": true
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "customer_segment",
+                  "axis": {
+                    "hideTitle": true,
+                    "hideLabels": true
+                  },
+                  "displayName": "Customer Segment",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "measure(LAR %)",
+                  "format": {
+                    "type": "number-percent",
+                    "decimalPlaces": {
+                      "type": "exact",
+                      "places": 2
+                    }
+                  },
+                  "displayName": "Default Rate (LAR %)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "customer_segment",
+                  "displayName": "Customer Segment",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "label": {
+                  "show": true
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "a27b973a",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "employment_type",
+                      "expression": "`employment_type`"
+                    },
+                    {
+                      "name": "measure(LAR %)",
+                      "expression": "MEASURE(`LAR %`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "Default Rate by Employment Type",
+                "showTitle": true
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "employment_type",
+                  "axis": {
+                    "hideTitle": true
+                  },
+                  "displayName": "Employment Type",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "measure(LAR %)",
+                  "format": {
+                    "type": "number-percent",
+                    "decimalPlaces": {
+                      "type": "exact",
+                      "places": 2
+                    }
+                  },
+                  "displayName": "Default Rate (LAR %)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "employment_type",
+                  "displayName": "Employment Type",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "label": {
+                  "show": true
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 0,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "035dd9c4",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "measure(LAR %)",
+                      "expression": "MEASURE(`LAR %`)"
+                    },
+                    {
+                      "name": "score_band",
+                      "expression": "`score_band`"
+                    },
+                    {
+                      "name": "customer_segment",
+                      "expression": "`customer_segment`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "Risk Heatmap - Outstanding Loans",
+                "showTitle": true
+              },
+              "widgetType": "heatmap",
+              "encodings": {
+                "x": {
+                  "fieldName": "score_band",
+                  "displayName": "Score Band",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "customer_segment",
+                  "displayName": "Customer Segment",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "color": {
+                  "fieldName": "measure(LAR %)",
+                  "displayName": "Default Rate (LAR %)",
+                  "scale": {
+                    "type": "quantitative",
+                    "colorRamp": {
+                      "mode": "scheme",
+                      "scheme": "redyellowgreen"
+                    },
+                    "reverse": true
+                  }
+                },
+                "label": {
+                  "show": true
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 12,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "91a6eb38",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "measure(PAR %)",
+                      "expression": "MEASURE(`PAR %`)"
+                    },
+                    {
+                      "name": "score_band",
+                      "expression": "`score_band`"
+                    },
+                    {
+                      "name": "customer_segment",
+                      "expression": "`customer_segment`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "Risk Heatmap - Outstanding Portfolio",
+                "showTitle": true
+              },
+              "widgetType": "heatmap",
+              "encodings": {
+                "x": {
+                  "fieldName": "score_band",
+                  "displayName": "Score Band",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "customer_segment",
+                  "displayName": "Customer Segment",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "color": {
+                  "fieldName": "measure(PAR %)",
+                  "displayName": "Default Rate (PAR %)",
+                  "scale": {
+                    "type": "quantitative",
+                    "colorRamp": {
+                      "mode": "scheme",
+                      "scheme": "redyellowgreen"
+                    },
+                    "reverse": true
+                  }
+                },
+                "label": {
+                  "show": true
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 12,
+            "width": 6,
+            "height": 6
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    },
+    {
+      "name": "134f5a3b",
+      "displayName": "Portfolio Composition & Exposure",
+      "layout": [
+        {
+          "widget": {
+            "name": "8bf51d45",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "geography",
+                      "expression": "`geography`"
+                    },
+                    {
+                      "name": "sum(total_disbursed)",
+                      "expression": "SUM(`total_disbursed`)"
+                    },
+                    {
+                      "name": "measure(LAR %)",
+                      "expression": "MEASURE(`LAR %`)"
+                    },
+                    {
+                      "name": "measure(PAR %)",
+                      "expression": "MEASURE(`PAR %`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "Geography Performance",
+                "showTitle": true
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "geography",
+                  "axis": {
+                    "hideTitle": true
+                  },
+                  "displayName": "Geography",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "primary": {
+                    "fields": [
+                      {
+                        "fieldName": "sum(total_disbursed)",
+                        "displayName": "Total Disbursed"
+                      }
+                    ],
+                    "scale": {
+                      "type": "quantitative"
+                    },
+                    "axis": {
+                      "hideTitle": false
+                    }
+                  },
+                  "secondary": {
+                    "fields": [
+                      {
+                        "fieldName": "measure(LAR %)",
+                        "displayName": "Default Rate (LAR %)"
+                      },
+                      {
+                        "fieldName": "measure(PAR %)"
+                      }
+                    ],
+                    "scale": {
+                      "type": "quantitative"
+                    },
+                    "axis": {
+                      "hideTitle": true,
+                      "hideLabels": true
+                    },
+                    "format": {
+                      "type": "number-percent",
+                      "decimalPlaces": {
+                        "type": "max",
+                        "places": 2
+                      }
+                    }
+                  }
+                },
+                "label": {
+                  "show": true
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 6,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "5418de8d",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "product_type",
+                      "expression": "`product_type`"
+                    },
+                    {
+                      "name": "sum(total_disbursed)",
+                      "expression": "SUM(`total_disbursed`)"
+                    },
+                    {
+                      "name": "measure(LAR %)",
+                      "expression": "MEASURE(`LAR %`)"
+                    },
+                    {
+                      "name": "measure(PAR %)",
+                      "expression": "MEASURE(`PAR %`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "Product Type Default Rate",
+                "showTitle": true
+              },
+              "mark": {
+                "colors": [
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 1
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 3
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 2
+                  }
+                ]
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "product_type",
+                  "axis": {
+                    "labelAngle": 0,
+                    "hideTitle": true
+                  },
+                  "displayName": "Product Type",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "natural-order-reversed"
+                    }
+                  }
+                },
+                "y": {
+                  "primary": {
+                    "fields": [
+                      {
+                        "fieldName": "sum(total_disbursed)"
+                      }
+                    ],
+                    "scale": {
+                      "type": "quantitative"
+                    }
+                  },
+                  "secondary": {
+                    "fields": [
+                      {
+                        "fieldName": "measure(LAR %)"
+                      },
+                      {
+                        "fieldName": "measure(PAR %)"
+                      }
+                    ],
+                    "scale": {
+                      "type": "quantitative"
+                    },
+                    "format": {
+                      "type": "number-percent",
+                      "decimalPlaces": {
+                        "type": "max",
+                        "places": 2
+                      }
+                    }
+                  }
+                },
+                "label": {
+                  "show": true
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "a06b5a78",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "acquisition_channel",
+                      "expression": "`acquisition_channel`"
+                    },
+                    {
+                      "name": "sum(total_disbursed)",
+                      "expression": "SUM(`total_disbursed`)"
+                    },
+                    {
+                      "name": "measure(LAR %)",
+                      "expression": "MEASURE(`LAR %`)"
+                    },
+                    {
+                      "name": "measure(PAR %)",
+                      "expression": "MEASURE(`PAR %`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "Acquisition Channel Performance",
+                "showTitle": true
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "acquisition_channel",
+                  "axis": {
+                    "hideTitle": true
+                  },
+                  "displayName": "Acquisition Channel",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "primary": {
+                    "fields": [
+                      {
+                        "fieldName": "sum(total_disbursed)",
+                        "displayName": "Total Disbursed"
+                      }
+                    ],
+                    "scale": {
+                      "type": "quantitative"
+                    }
+                  },
+                  "secondary": {
+                    "fields": [
+                      {
+                        "fieldName": "measure(LAR %)",
+                        "displayName": "Default Rate (LAR %)"
+                      },
+                      {
+                        "fieldName": "measure(PAR %)"
+                      }
+                    ],
+                    "scale": {
+                      "type": "quantitative"
+                    },
+                    "axis": {
+                      "hideTitle": true,
+                      "hideLabels": true
+                    },
+                    "format": {
+                      "type": "number-percent",
+                      "decimalPlaces": {
+                        "type": "max",
+                        "places": 2
+                      },
+                      "hideGroupSeparator": false
+                    }
+                  }
+                },
+                "label": {
+                  "show": true
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 6,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "27bf1ed4",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "dpd_bucket",
+                      "expression": "`dpd_bucket`"
+                    },
+                    {
+                      "name": "product_type",
+                      "expression": "`product_type`"
+                    },
+                    {
+                      "name": "sum(total_outstanding_balance)",
+                      "expression": "SUM(`total_outstanding_balance`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "DPD Bucket Outstanding Balance Distribution",
+                "showTitle": true
+              },
+              "widgetType": "area",
+              "encodings": {
+                "x": {
+                  "fieldName": "product_type",
+                  "axis": {
+                    "hideTitle": true,
+                    "labelAngle": 0
+                  },
+                  "displayName": "DPD Bucket",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "natural-order-reversed"
+                    }
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(total_outstanding_balance)",
+                  "displayName": "Total Outstanding Balance",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "dpd_bucket",
+                  "displayName": "DPD Bucket",
+                  "scale": {
+                    "type": "categorical",
+                    "mappings": [
+                      {
+                        "value": "90+",
+                        "color": {
+                          "themeColorType": "visualizationColors",
+                          "position": 4
+                        }
+                      },
+                      {
+                        "value": "Current",
+                        "color": {
+                          "themeColorType": "visualizationColors",
+                          "position": 3
+                        }
+                      },
+                      {
+                        "value": "30-59",
+                        "color": {
+                          "themeColorType": "visualizationColors",
+                          "position": 8
+                        }
+                      }
+                    ]
+                  }
+                },
+                "label": {
+                  "show": true
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 0,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "22c9933e",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "ticket_size_segment",
+                      "expression": "`ticket_size_segment`"
+                    },
+                    {
+                      "name": "sum(total_disbursed)",
+                      "expression": "SUM(`total_disbursed`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "Ticket Size Segment Exposure",
+                "showTitle": true
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "ticket_size_segment",
+                  "axis": {
+                    "hideTitle": true
+                  },
+                  "displayName": "Ticket Size Segment",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(total_disbursed)",
+                  "format": {
+                    "type": "number-plain",
+                    "decimalPlaces": {
+                      "type": "exact",
+                      "places": 2
+                    },
+                    "abbreviation": "compact"
+                  },
+                  "displayName": "Total Disbursed",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "ticket_size_segment",
+                  "displayName": "Ticket Size Segment",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "label": {
+                  "show": true
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 12,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "3fb0bfb8",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "tenure_band",
+                      "expression": "`tenure_band`"
+                    },
+                    {
+                      "name": "measure(LAR %)",
+                      "expression": "MEASURE(`LAR %`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "Tenure Band Risk",
+                "showTitle": true
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "tenure_band",
+                  "axis": {
+                    "hideTitle": true
+                  },
+                  "displayName": "Tenure Band",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "measure(LAR %)",
+                  "format": {
+                    "type": "number-percent",
+                    "decimalPlaces": {
+                      "type": "exact",
+                      "places": 2
+                    }
+                  },
+                  "displayName": "Default Rate (LAR %)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "tenure_band",
+                  "displayName": "Tenure Band",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "label": {
+                  "show": true
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 12,
+            "width": 6,
+            "height": 6
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    },
+    {
+      "name": "747a1b99",
+      "displayName": "Global Filters",
+      "layout": [
+        {
+          "widget": {
+            "name": "reporting-month",
+            "queries": [
+              {
+                "name": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_monthly(reporting_month)",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "monthly(reporting_month)",
+                      "expression": "DATE_TRUNC(\"MONTH\", `reporting_month`)"
+                    },
+                    {
+                      "name": "monthly(reporting_month)_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Reporting Month"
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "monthly(reporting_month)",
+                    "displayName": "MONTHLY(reporting_month)",
+                    "queryName": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_monthly(reporting_month)"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 1,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "product",
+            "queries": [
+              {
+                "name": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_product_type",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "product_type",
+                      "expression": "`product_type`"
+                    },
+                    {
+                      "name": "product_type_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Product"
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "product_type",
+                    "queryName": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_product_type"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 2,
+            "width": 1,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "geography",
+            "queries": [
+              {
+                "name": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_geography",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "geography",
+                      "expression": "`geography`"
+                    },
+                    {
+                      "name": "geography_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Geography"
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "geography",
+                    "queryName": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_geography"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 4,
+            "width": 1,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "customer-segment",
+            "queries": [
+              {
+                "name": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_customer_segment",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "customer_segment",
+                      "expression": "`customer_segment`"
+                    },
+                    {
+                      "name": "customer_segment_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Customer Segment"
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "customer_segment",
+                    "queryName": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_customer_segment"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 6,
+            "width": 1,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "score-band",
+            "queries": [
+              {
+                "name": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_score_band",
+                "query": {
+                  "datasetName": "3f3fd7c6",
+                  "fields": [
+                    {
+                      "name": "score_band",
+                      "expression": "`score_band`"
+                    },
+                    {
+                      "name": "score_band_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Score Band"
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "score_band",
+                    "queryName": "dashboards/01f13e4aed451584bd7a7c171ae29c25/datasets/01f13e4af83116369251bf8f09228c85_score_band"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 8,
+            "width": 1,
+            "height": 2
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_GLOBAL_FILTERS",
+      "layoutVersion": "GRID_V1"
+    },
+    {
+      "name": "2b6ccfb6",
+      "displayName": "Strategy Simulation",
+      "layout": [
+        {
+          "widget": {
+            "name": "e38486ff",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "e3016df1",
+                  "fields": [
+                    {
+                      "name": "avg(approval_rate)",
+                      "expression": "AVG(`approval_rate`)"
+                    },
+                    {
+                      "name": "avg(expected_default_rate)",
+                      "expression": "AVG(`expected_default_rate`)"
+                    },
+                    {
+                      "name": "sum(expected_loss_proxy)",
+                      "expression": "SUM(`expected_loss_proxy`)"
+                    },
+                    {
+                      "name": "strategy_name",
+                      "expression": "`strategy_name`"
+                    },
+                    {
+                      "name": "sum(approved_disbursed)",
+                      "expression": "SUM(`approved_disbursed`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "mark": {
+                "colors": [
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 3
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 4
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 6
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 1
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 5
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 6
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 7
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 8
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 9
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 10
+                  }
+                ]
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "strategy_name",
+                  "axis": {
+                    "hideLabels": false,
+                    "hideTitle": true
+                  },
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "primary": {
+                    "fields": [
+                      {
+                        "fieldName": "avg(approval_rate)",
+                        "displayName": "Approval Rate"
+                      },
+                      {
+                        "fieldName": "avg(expected_default_rate)",
+                        "displayName": "Expected Default Rate"
+                      }
+                    ],
+                    "scale": {
+                      "type": "quantitative"
+                    },
+                    "format": {
+                      "type": "number-percent",
+                      "decimalPlaces": {
+                        "type": "max",
+                        "places": 2
+                      }
+                    },
+                    "axis": {
+                      "hideTitle": true,
+                      "hideLabels": true
+                    }
+                  },
+                  "secondary": {
+                    "fields": [
+                      {
+                        "fieldName": "sum(expected_loss_proxy)",
+                        "displayName": "Expoected Loss"
+                      },
+                      {
+                        "fieldName": "sum(approved_disbursed)",
+                        "displayName": "Approved Disbursed"
+                      }
+                    ],
+                    "scale": {
+                      "type": "quantitative"
+                    },
+                    "axis": {
+                      "hideLabels": true,
+                      "hideTitle": true
+                    }
+                  }
+                },
+                "label": {
+                  "show": true
+                },
+                "extra": [
+                  {
+                    "fieldName": "avg(approval_rate)",
+                    "format": {
+                      "type": "number-percent",
+                      "decimalPlaces": {
+                        "type": "max",
+                        "places": 2
+                      }
+                    }
+                  },
+                  {
+                    "fieldName": "avg(expected_default_rate)",
+                    "format": {
+                      "type": "number-percent",
+                      "decimalPlaces": {
+                        "type": "max",
+                        "places": 2
+                      }
+                    }
+                  },
+                  {
+                    "fieldName": "sum(expected_loss_proxy)"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 4,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "43c67943",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "e3016df1",
+                  "fields": [
+                    {
+                      "name": "strategy_name",
+                      "expression": "`strategy_name`"
+                    },
+                    {
+                      "name": "monthly(reporting_month)",
+                      "expression": "DATE_TRUNC(\"MONTH\", `reporting_month`)"
+                    },
+                    {
+                      "name": "max(approved_count)",
+                      "expression": "MAX(`approved_count`)"
+                    },
+                    {
+                      "name": "approval_rate",
+                      "expression": "`approval_rate`"
+                    },
+                    {
+                      "name": "expected_default_rate",
+                      "expression": "`expected_default_rate`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "scatter",
+              "encodings": {
+                "x": {
+                  "fieldName": "approval_rate",
+                  "format": {
+                    "type": "number-percent",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "fieldName": "expected_default_rate",
+                  "format": {
+                    "type": "number-percent",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "strategy_name",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "size": {
+                  "fieldName": "max(approved_count)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "extra": [
+                  {
+                    "fieldName": "strategy_name"
+                  },
+                  {
+                    "fieldName": "monthly(reporting_month)"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 4,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "3669833c",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "e3016df1",
+                  "fields": [
+                    {
+                      "name": "strategy_name",
+                      "expression": "`strategy_name`"
+                    },
+                    {
+                      "name": "reporting_month",
+                      "expression": "`reporting_month`"
+                    },
+                    {
+                      "name": "avg(approval_rate)",
+                      "expression": "AVG(`approval_rate`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "Approval Rate Trend by Strategy",
+                "showTitle": true
+              },
+              "mark": {
+                "marker": {
+                  "shape": "circle"
+                }
+              },
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "reporting_month",
+                  "axis": {
+                    "hideTitle": true
+                  },
+                  "displayName": "reporting_month",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "fieldName": "avg(approval_rate)",
+                  "format": {
+                    "type": "number-percent",
+                    "decimalPlaces": {
+                      "type": "exact",
+                      "places": 2
+                    }
+                  },
+                  "displayName": "avg(approval_rate)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "strategy_name",
+                  "legend": {
+                    "position": "bottom"
+                  },
+                  "displayName": "strategy_name",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 10,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "expected_loss_trend",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "e3016df1",
+                  "fields": [
+                    {
+                      "name": "strategy_name",
+                      "expression": "`strategy_name`"
+                    },
+                    {
+                      "name": "reporting_month",
+                      "expression": "`reporting_month`"
+                    },
+                    {
+                      "name": "avg(expected_default_rate)",
+                      "expression": "AVG(`expected_default_rate`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "Expected Loss Trend by Strategy",
+                "showTitle": true
+              },
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "reporting_month",
+                  "axis": {
+                    "hideTitle": true
+                  },
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "fieldName": "avg(expected_default_rate)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "strategy_name",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 10,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "key-insights",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "295c7f47",
+                  "fields": [
+                    {
+                      "name": "insight_category",
+                      "expression": "`insight_category`"
+                    },
+                    {
+                      "name": "insight_text",
+                      "expression": "`insight_text`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Key Insights"
+              },
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "insight_category",
+                    "displayName": "Insight Category"
+                  },
+                  {
+                    "fieldName": "insight_text",
+                    "displayName": "Insight"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 16,
+            "width": 12,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "underwriting-simulations-strategy-details",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "2c243452",
+                  "fields": [
+                    {
+                      "name": "Strategy",
+                      "expression": "`Strategy`"
+                    },
+                    {
+                      "name": "Description",
+                      "expression": "`Description`"
+                    },
+                    {
+                      "name": "Key Rules",
+                      "expression": "`Key Rules`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Underwriting Simulations - Strategy Details"
+              },
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "Strategy"
+                  },
+                  {
+                    "fieldName": "Description"
+                  },
+                  {
+                    "fieldName": "Key Rules"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 4
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "applyModeEnabled": false
+  }
+}
