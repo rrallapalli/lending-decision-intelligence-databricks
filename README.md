@@ -70,7 +70,7 @@ The dashboard is built using **Gold tables as datasets (no SQL layer)**.
 2. Monthly Portfolio Trends
 ![Portfolio Trends](images/Dashboard%20-%202.%20Portfolio%20Trends.png)
 3. Risk segmentation
-![Risk segmentation](images/Dashboard20%-%203.%20Risk%20Segmentation.png)
+![Risk segmentation](images/Dashboard%20-%203.%20Risk%20Segmentation.png)
 4. Exposure Analysis
 ![Portfolio Composition & Exposure](images/Dashboard%20-%204.%20Portfolio%20Composition%20&%20Exposure.png)
 5. Strategy Comparison
