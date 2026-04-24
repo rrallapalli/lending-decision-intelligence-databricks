@@ -94,12 +94,7 @@ The dashboard is built using **Gold tables as datasets (no SQL layer)**.
 
 ## ▶️ How to Run
 
-01_ingest_bronze  
-02_transform_silver  
-03_build_gold  
-05_strategy_simulation  
-04_ai_insight_layer  
-06_validation  
+Refer [![How To Run]](docs/how_to_run.md)
 
 ---
 
